@@ -651,7 +651,11 @@ footer a:hover{
     #header {
         flex-direction: row;
         justify-content: space-between;
-        padding: 5px;
+        padding: 1px;
+    }
+    .logo{
+        width: 200px;
+        height: auto;
     }
     .mobile{
         display: flex;
