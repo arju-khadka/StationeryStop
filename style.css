@@ -441,10 +441,10 @@ color: #000;
    background-color:#424141; 
 }
 
-
-
-
-
+/* blog page */
+ #page-header.blog-header{
+    background-image: url("img/banner/b4.png");
+}
 
 
 
