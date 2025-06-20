@@ -491,6 +491,22 @@ color: #000;
     color: #088178;
 }
 
+/* about page */
+#page-header.about-header{
+    background-image: url("img/about/about1.png");
+}
+#about-head {
+    display: flex;
+    align-items: center;
+}
+#about-head img{
+    width: 50%;
+    height: auto;
+}
+#about-head div{
+    padding-left: 40px;
+}
+
 
 
 
@@ -807,7 +823,17 @@ width: 100%;
 #blog .blog-details {
     width: 100%;
 }
-  
+  /* about page */
+  #about-head {
+    flex-direction: column;
+}
+#about-head img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+#about-head div{
+    padding-left: 0px;
+}
 }
 
 
