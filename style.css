@@ -510,7 +510,11 @@ color: #000;
 
 
 
-/* contact page */
+/*  contact page  */
+#page-header.contact-header{
+    background-image:url("img/banner/contact.jpg");
+}
+
 
 #contact-details{
     display: flex;
@@ -522,11 +526,13 @@ color: #000;
     width:40%;
 }
 
-#contact-details .details span{
+#contact-details .details span,
+#form-details form span{
     font-size: 12px;
 }
 
-#contact-details .details h2{
+#contact-details .details h2,
+#form-details form h2{
     font-size: 26px;
     line-height: 35px;
     padding: 20px 0;
@@ -561,6 +567,28 @@ color: #000;
 #contact-details .map iframe{
     width:100%;
     height: 100%;
+}
+
+#form-details form{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-details form input,
+#form-details form textarea{
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+#form-details form button{
+
+    background-color: #088178;
+    color: #fff;
 }
 
 
