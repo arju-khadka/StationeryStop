@@ -18,8 +18,8 @@
                 <li><a  href="shop.html">Shop</a></li>
                 <li><a  href="blog.html">Blog</a></li>
                 <li><a  href="about.html">About</a></li>
-                <li><a class="active" href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <li><a  href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="active" href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a></li>
                 <a href="#" id="close"><i class="fas fa-times"></i></a>
             </ul>
         </div>
@@ -29,55 +29,93 @@
         </div>
     </section>
 
-    <section id="page-header" class=" contact-header" >
+    <section id="page-header" class=" cart-header" >
         
-        <h2>Contact Details</h2>
+        <h2>Cart Details</h2>
 
-        <p>Have Questions? Contact Us!</p>
+        <p># Your Cart is Waiting!</p>
         
     </section>
 
-    <section id="contact-details" class="section-p1">
-        <div class="details">
-            <span>Get in Touch With Us</span>
-            <h2>We're here to help you with anything — from order questions to product suggestions!</h2>
-            <h3>Office</h3>
-            <div>
-                <li>
-                    <i class="bi bi-map-fill"></i>
-                    <p>Main Road,Ward No.5,Damak-57210,Jhapa,Nepal</p>
-                </li>
-                 <li>
-                    <i class="bi bi-envelope-fill"></i>
-                    <p> contact stationerystop@gmail.com</p>
-                </li>
-                 <li>
-                    <i class="bi bi-geo-alt-fill"></i>
-                    <p>contact +977234205678</p>
-                </li>
-                <li>
-                    <i class="bi bi-clock-fill"></i>
-                    <p>Monday to Saturday: 10:00am to 18:00pm</p>
-                </li>
-            </div>
-        </div>
+    <section id="cart" class="section-p1">
+     <table width="100%">
+        <thead>
+            <tr>
+                <td>Remove</td>
+                <td> Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+     
+       
+            <tbody>
+                <tr>
+                    <td> <a href="a"><i class="for fa-times-circle"></i></a></td>
+                    <td><img src="img/product/f1.jpg" alt""></td>
+                    <td>Colour Pencils</td>   
+                    <td>Rs350</td>
+                    <td><input type="number" value="1"></td>
+                    <td>Rs350</td>
 
-        <div class="map">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114091.89413501314!2d87.52088055652224!3d26.668592483596544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e58e14d281c547%3A0xb0d3c98577060f3d!2sDamak!5e0!3m2!1sen!2snp!4v1750532027784!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   
-        </div>
-    </section>
+                   
+                </tr>
 
-    <section id="newsletter" class="section-p1">
-        <div class="newstext">
-            <h4>Sign Up For Newsletters</h4>
-            <p>Get E-mail updates about our latest shop.</p>
-        </div>
+                 <tr>
+                    <td> <a href="a"><i class="for fa-times-circle"></i></a></td>
+                    <td><img src="img/product/f2.jpg" alt""></td>
+                    <td>Cute sticky notes</td>   
+                    <td>Rs80</td>
+                    <td><input type="number" value="2"></td>
+                    <td>Rs80</td>
+                    </tr>
 
-        <div class="form">
-            <input type="text" placeholder="Your email address">
-            <button class="normal">Sign Up</button>
+                    
+                 <tr>
+                    <td> <a href="a"><i class="for fa-times-circle"></i></a></td>
+                    <td><img src="img/product/f3.jpg" alt""></td>
+                    <td>Spiral Notebook</td>   
+                    <td>Rs150</td>
+                    <td><input type="number" value="3"></td>
+                    <td>Rs150</td>
+                    </tr>
+
+                
+
+            </tbody>
+     </table>
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+            <input type="text" placeholder="Enter Your Coupons">
+            <button class="normal">Apply</button>
         </div>
-    </section>
+    </div>
+
+    <div id="subtotal">
+        <h3>Cart Total</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td>Rs 250</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>Rs 250</strong></td>
+            </tr>
+        </table>
+        <button class="normal">Proceed to checkout</button>
+    </div>
+ </section>
+
+            
+
+
 
     <footer class="section-p1">
         <div class="col">
@@ -107,12 +145,7 @@
         </div>
 
         <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store Or Google Play</p>
-            <div class="row">
-                <img src="img/pay/play.jpg" alt="">
-            </div>
-            <p>Secured Payment Gateways</p>
+            <h4>Secured Payment Gateways</h4>
             <img src="img/pay/pay.jpg" alt="">
         </div>
     </footer>
