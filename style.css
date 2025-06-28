@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
 }
-
+/* home page*/
 h1{
     font-size: 50px;
     line-height: 64px;
@@ -591,10 +591,72 @@ color: #000;
     color: #fff;
 }
 
+/* single product */
+#prodetails{
+    display: flex;
+    margin-top: 20px;
+}
 
+#prodetails .single-pro-image{
+    width: 40%;
+    margin-right: 50px;
+}
 
+#prodetails .single-pro-details{
+    width: 50%;
+    padding-top: 30px;
+}
 
+#prodetails .single-pro-details h4{
+    padding: 40px 0 20px 0;
+}
 
+#prodetails .single-pro-details h2{
+    font-size: 26px;
+}
+#prodetails .single-pro-details input{
+    width: 50px;
+    height: 47px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#prodetails .single-pro-details input:focus{
+    outline: none;
+}
+
+#prodetails .single-pro-details span{
+    line-height: 25px;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.add-to-cart,
+.buy-now {
+    background-color: #088178;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #066b65;
+    transform: scale(1.05);
+}
+
+.buy-now:hover {
+    background-color: #066b65;
+    transform: scale(1.05);
+}
 
 
 
