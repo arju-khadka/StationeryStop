@@ -266,6 +266,25 @@
             updateCartCount();
         });
     </script>
+    <script>
+        function proceedToCheckout() {
+    document.getElementById('qrModal').style.display = 'block';
+}
+
+function closeQrModal() {
+    document.getElementById('qrModal').style.display = 'none';
+}
+
+    </script>
+    <!-- QR Code Modal -->
+<div id="qrModal">
+    <div id="qrModalContent">
+        <h3>Scan to Pay</h3>
+        <img src="img/pay/pay2.jpg" alt="QR Code">
+        <button onclick="closeQrModal()">Close</button>
+    </div>
+</div>
+
     <script src="script.js"></script>
 </body>
 </html>
