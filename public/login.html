@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="form_box">
+            <h1 id="title">Sign Up</h1>
+            <form id="authForm">
+                <div class="input-group">
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="name" placeholder="Name" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="input-field" id="confirmPasswordField">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                    </div>
+
+                    <p id="forgotPassword" style="display: none;">Forgot password <a href="#">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="submit" id="signupBtn">Sign Up</button>
+                    <button type="submit" id="signinBtn" class="disable">Sign In</button>
+                </div>
+            </form>
+            <div id="message" style="margin-top: 10px; text-align: center;"></div>
+        </div>
+    </div>
+
+    <script>
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let nameField = document.getElementById("nameField");
+        let confirmPasswordField = document.getElementById("confirmPasswordField");
+        let title = document.getElementById("title");
+        let forgotPassword = document.getElementById("forgotPassword");
+        let authForm = document.getElementById("authForm");
+        let messageDiv = document.getElementById("message");
+
+        let isSignUp = true;
+
+        // Toggle between Sign Up and Sign In
+        signinBtn.onclick = function(){
+            nameField.style.maxHeight = "0";
+            confirmPasswordField.style.maxHeight = "0";
+            title.innerHTML = "Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+            forgotPassword.style.display = "block";
+            isSignUp = false;
+        }
+
+        signupBtn.onclick = function(){
+            if(!isSignUp) {
+                nameField.style.maxHeight = "60px";
+                confirmPasswordField.style.maxHeight = "60px";
+                title.innerHTML = "Sign Up";
+                signupBtn.classList.remove("disable");
+                signinBtn.classList.add("disable");
+                forgotPassword.style.display = "none";
+                isSignUp = true;
+            }
+        }
+
+        // Show message function
+        function showMessage(message, isError = false) {
+            messageDiv.innerHTML = message;
+            messageDiv.style.color = isError ? "#ff4444" : "#00aa00";
+            messageDiv.style.padding = "10px";
+            messageDiv.style.borderRadius = "5px";
+            messageDiv.style.backgroundColor = isError ? "#ffeeee" : "#eeffee";
+            messageDiv.style.border = `1px solid ${isError ? "#ff4444" : "#00aa00"}`;
+        }
+
+        // Form submission
+        authForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (isSignUp) {
+                // Sign Up
+                if (!name || !email || !password || !confirmPassword) {
+                    showMessage('All fields are required', true);
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showMessage('Passwords do not match', true);
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/signup', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            password,
+                            confirmPassword
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        showMessage('Account created successfully! You can now sign in.', false);
+                        // Switch to sign in form
+                        setTimeout(() => {
+                            signinBtn.click();
+                            authForm.reset();
+                        }, 2000);
+                    } else {
+                        showMessage(data.message, true);
+                    }
+                } catch (error) {
+                    showMessage('An error occurred. Please try again.', true);
+                    console.error('Error:', error);
+                }
+            } else {
+                // Sign In
+                if (!email || !password) {
+                    showMessage('Email and password are required', true);
+                    return;
+                }
+
+                try {
+                    const response = await fetch('/signin', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            email,
+                            password
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        showMessage('Login successful! Redirecting...', false);
+                        // Store token in localStorage (optional)
+                        localStorage.setItem('token', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+                        
+                        // Redirect to main page
+                        setTimeout(() => {
+                            window.location.href = '/main';
+                        }, 1000);
+                    } else {
+                        showMessage(data.message, true);
+                    }
+                } catch (error) {
+                    showMessage('An error occurred. Please try again.', true);
+                    console.error('Error:', error);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
