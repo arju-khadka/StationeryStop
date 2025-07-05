@@ -5,7 +5,6 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('./models/User');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -19,7 +18,7 @@ mongoose.connect('mongodb+srv://stationerystop12:stationerystop@cluster1.pnwgdzk
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
-const JWT_SECRET = 'pagalho';
+const JWT_SECRET = 'stationery';
 // Cart Item Schema
 const cartItemSchema = new mongoose.Schema({
     productId: String,
@@ -116,6 +115,7 @@ app.delete('/api/cart', async (req, res) => {
 
 // Serve HTML files
 app.get('/', (req, res) => {
+
     console.log('Root route accessed - serving login page');
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
@@ -123,11 +123,13 @@ app.get('/', (req, res) => {
 // Alternative login route
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login.html'));
+
 });
 
 app.get('/shop', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'shop.html'));
 });
+
 
 // Serve main page (after successful login) - protected route
 app.get('/main', (req, res) => {
@@ -290,7 +292,6 @@ app.get('/profile', authenticateToken, async (req, res) => {
         });
     }
 });
-
 app.get('/cart', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'cart.html'));
 });
@@ -301,4 +302,5 @@ app.get('/shop/sproduct1', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
+   
 });

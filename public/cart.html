@@ -56,16 +56,6 @@
             <a href="shop.html" class="normal" style="display: inline-block; margin-top: 20px; padding: 15px 30px; background-color: #088178; color: white; text-decoration: none; border-radius: 4px;">Continue Shopping</a>
         </div>
     </section>
-
-    <section id="cart-add" class="section-p1">
-        <div id="coupon">
-            <h3>Apply Coupon</h3>
-            <div>
-                <input type="text" placeholder="Enter Your Coupon Code">
-                <button class="normal">Apply</button>
-            </div>
-        </div>
-
         <div id="subtotal">
             <h3>Cart Total</h3>
             <table>
@@ -90,7 +80,7 @@
     <section id="newsletter" class="section-p1">
         <div class="newstext">
             <h4>Transform Your Ideas into Reality with Premium Stationery That Inspires Every Creative Moment</h4>
-            <p>Where creativity begins and dreams take shape</p>
+            <p>Your next masterpiece starts here</p>
         </div>
     </section>
 
@@ -266,6 +256,25 @@
             updateCartCount();
         });
     </script>
+
+    <script>
+        function proceedToCheckout() {
+    document.getElementById('qrModal').style.display = 'block';
+}
+
+function closeQrModal() {
+    document.getElementById('qrModal').style.display = 'none';
+}
+
+    </script>
+    <!-- QR Code Modal -->
+<div id="qrModal">
+    <div id="qrModalContent">
+        <h3>Scan to Pay</h3>
+        <img src="img/pay/pay2.jpg" alt="QR Code">
+        <button onclick="closeQrModal()">Close</button>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

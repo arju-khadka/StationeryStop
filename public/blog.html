@@ -43,8 +43,15 @@
             </div>
             <div class ="blog-details">
                 <h4> Stationery Hacks You Didn't Know You Needed.</h4>
-                <p> Discover clever and unexpected ways to use everyday stationery itemshg that can simplify tasks, boost....</p>
-                <a href="#">CONTINUE READING</a>
+                <p> Discover clever and unexpected ways to use everyday stationery items
+                    <span class="dots">...</span>
+                    <span class="more-text" style="display:none;">
+                        that can simplify tasks, boost productivity, and even bring fun into boring routines. 
+                    From binder clips doubling as cable holders to sticky notes as keyboard cleaners, 
+                    these hacks will surprise you. Unleash your creativity using tools you already own.
+                    </span>
+                </p>
+                <a href="#" class="read-more-btn">CONTINUE READING</a>
             </div>
         </div>
         <div class="blog-box">
@@ -53,8 +60,15 @@
             </div>
             <div class ="blog-details">
                 <h4>Trending: Create Your Ideal Study Desk with Stationery Essentials! </h4>
-                <p>A look into the rising trend of aesthetic and practical desk setups using....</p>
-                <a href="#">CONTINUE READING</a>
+                <p>A look into the rising trend of aesthetic and practical desk setups using
+                <span class="dots">...</span>
+                <span class="more-text " style="display:none;">
+                    functionality. Organizing pens, sticky notes, and planners beautifully not only makes 
+                    your desk look good but also increases motivation. Small changes in layout with your favorite 
+                    stationery can boost focus and reduce clutter. Make your space truly yours.
+                </span>
+                </p>
+                <a href="#" class="read-more-btn">CONTINUE READING</a>
             </div>
         </div>
         <div class="blog-box">
@@ -63,8 +77,15 @@
             </div>
             <div class ="blog-details">
                 <h4> Eco-Friendly Stationery: How to Study Smart & Save the Planet?</h4>
-                <p>Explore sustainable stationery options and how small choices can make a big environmental.... </p>
-                <a href="#">CONTINUE READING</a>
+                <p>Explore sustainable stationery options and how small choices can make a big environmental 
+                <span class="dots">...</span>
+                <span class="more-text" style="display:none;">
+                    impact. Recycled paper, refillable pens, and biodegradable markers are just the beginning. 
+                    Choosing greener options supports the planet without compromising productivity. 
+                    It's a small switch for you, but a big one for the environment.
+                </span>
+                </p>
+                <a href="#"class="read-more-btn">CONTINUE READING</a>
             </div>
         </div>
         <div class="blog-box">
@@ -73,8 +94,15 @@
             </div>
             <div class ="blog-details">
                 <h4> Top 10 Must-Have Stationery Items for Every Student. </h4>
-                <p>Essential tools that help students stay organized, focused, and....</p>
-                <a href="#">CONTINUE READING</a>
+                <p>There are some essential tools that help students stay organized and
+                <span class="dots">...</span>
+                <span class="more-text" style="display:none;">
+                    focused. These include notebooks, gel pens, highlighters, sticky notes, and organizers. 
+                    Each item plays a role in managing time, tasks, and study material efficiently. 
+                    Having the right tools can turn average study sessions into productive ones.
+                </span>
+                </p>
+                <a href="#"class="read-more-btn">CONTINUE READING</a>
             </div>
         </div>
         <div class="blog-box">
@@ -83,8 +111,15 @@
             </div>
             <div class ="blog-details">
                 <h4>Rising Trend: Digital + Traditional Stationery Combo!</h4>
-                <p>Discover how people are blending smart notebooks and apps with classic stationery for....</p>
-                <a href="#">CONTINUE READING</a>
+                <p>Discover how people are blending smart notebooks and apps with classic stationery for
+                <span class="dots">...</span>
+                <span class="more-text" style="display:none;">
+                     maximum efficiency. Apps like Notion and Google Keep can sync with handwritten notes 
+                    using smart notebooks. This blend helps in backup, sharing, and enhanced retention. 
+                    It’s the best of both worlds—tech and touch.
+                </span>
+                </p>
+                <a href="#"class="read-more-btn">CONTINUE READING</a>
             </div>
         </div>
     </section>
@@ -92,9 +127,9 @@
     
 
     <section id="newsletter" class="section-p1">
-       <div class="newstext">
+        <div class="newstext">
             <h4>Transform Your Ideas into Reality with Premium Stationery That Inspires Every Creative Moment</h4>
-            <p>Where creativity begins and dreams take shape</p>
+            <p>Your next masterpiece starts here</p>
         </div>
     </section>
  
@@ -126,12 +161,33 @@
         </div>
 
         <div class="col install">
-            <h4>Secured Payment Gateways</h4>
+            <h4>Secured Payment Gateway</h4>
             <img src="img/pay/pay2.jpg" alt="">
         </div>
     </footer>
 
 
     <script src="script.js"></script>
+
+    <script>
+  document.querySelectorAll('.read-more-btn').forEach((btn) => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const paragraph = this.previousElementSibling;
+      const dots = paragraph.querySelector('.dots');
+      const moreText = paragraph.querySelector('.more-text');
+
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        dots.style.display = "none";
+        this.textContent = "READ LESS";
+      } else {
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        this.textContent = "CONTINUE READING";
+      }
+    });
+  });
+</script>
 </body>
 </html>
